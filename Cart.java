@@ -12,9 +12,11 @@ public class Cart {
         while (true) {
             System.out.print("> ");
             String input = scanner.nextLine();
-         // did not use this
+        
+         //     String items = input.substring(4).trim();
+        //      String[] itemarray = items.split(",");
 
-        switch(input){
+        switch(input){ // change to itemarray
             case ("list"): {
                 if (cartitems.isEmpty()){
                     System.out.println("Your cart is empty");
@@ -66,7 +68,7 @@ public class Cart {
 
      }
 
-     //use iterator: how to use exactly
+     //REDO thanks
      
 
 
