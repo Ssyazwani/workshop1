@@ -43,7 +43,7 @@ public class Cart {
         }
             case ("delete"): {
                 if (input.length() > 7) {
-             int index = Integer.parseInt(input.substring(7).trim()) - 1;  
+             int index = Integer.parseInt(input.substring(7).trim()) - 1;  // -1 because input would see 1,2,3 but computer stores it at 0,1,2,3
                 if (index >= 0 && index < cartitems.size()) {
                     String removedItem = cartitems.remove(index);
                     System.out.println(removedItem + " removed from cart");
