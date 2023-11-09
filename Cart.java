@@ -12,29 +12,24 @@ public class Cart {
         while (true) {
             System.out.print("> ");
             String input = scanner.nextLine();
+            String[] items = input.split(" "); //splitting an array into strings
         
-         //     String items = input.substring(4).trim();
-        //      String[] itemarray = items.split(",");
-
-        switch(input){ // change to itemarray
-            case ("list"): {
+        switch(items[0]){ 
+            case ("list"): 
                 if (cartitems.isEmpty()){
                     System.out.println("Your cart is empty");
-                    break;
                 } else {
                     for (int i = 0; i <cartitems.size(); i++){
                     System.out.println((i + 1) + ". " + cartitems.get(i));
-                     break;
+                     
                     }
-           
-                
-                }
+                 break;
             }
-            case ("add"):{
-                
-                String items = input.substring(4).trim();
-                String[] itemarray = items.split(",");
-                for (String item : itemarray) {
+            case ("add"):
+            if (input.length() > 4) {
+              String item = input.substring(4).trim();
+              String[] itemarray = item.split(",");
+                for (String thing : itemarray) {
                     item = item.trim();
                 if(!cartitems.contains(item)){
                     cartitems.add(item);
@@ -42,34 +37,39 @@ public class Cart {
                 } else {
                     System.out.println("You already have " + item + " in cart");
                 }
-                break;
-            }
-        }
             
+            }
+            break;
+        }
             case ("delete"): {
-                int index = Integer.parseInt(input.substring(7).trim()) - 1; //remember this
+                if (input.length() > 7) {
+             int index = Integer.parseInt(input.substring(7).trim()) - 1;  
                 if (index >= 0 && index < cartitems.size()) {
                     String removedItem = cartitems.remove(index);
                     System.out.println(removedItem + " removed from cart");
                 } else {
                     System.out.println("Incorrect item index");
-                } break;
-
+                }
 
             }
+
+            break;
         }
     
-       
+       // do not remove by index --> because u are modifying the list or maybe u create a second list with the item that already has been removed
+       // use stream 
  
         }  
 
     }
 
+    
+    }
 
-     }
-
-     //REDO thanks
+}
      
+
+     //SOLVED*  
 
 
  
